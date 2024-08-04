@@ -10,8 +10,9 @@ quiz_data = {
 }
 
 def main():
-    # Ambil 50 pertanyaan acak dari kumpulan pertanyaan yang tersedia
-    quiz_questions = random.sample(list(quiz_data.keys()), 50)
+    # Tentukan jumlah pertanyaan yang akan diambil, tidak melebihi jumlah item di quiz_data
+    num_questions = min(50, len(quiz_data))
+    quiz_questions = random.sample(list(quiz_data.keys()), num_questions)
 
     # Skor awal
     score = 0
@@ -31,7 +32,7 @@ def main():
             print(f"Jawaban Anda salah. Jawaban yang benar adalah: {correct_answer}")
 
     # Tampilkan skor akhir
-    print(f"\nKuis selesai! Skor Anda adalah {score} dari 50.")
+    print(f"\nKuis selesai! Skor Anda adalah {score} dari {num_questions}.")
 
 if __name__ == "__main__":
     main()
